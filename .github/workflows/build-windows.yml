@@ -13,10 +13,9 @@ jobs:
           python-version: '3.12'
       - name: Install PyInstaller
         run: python -m pip install pyinstaller==6.16.0
-      - name: Build standalone application
-        run: python -m PyInstaller --noconfirm --clean --onefile --windowed --name MNOVA_Converter MNOVA_IR_MS_Converter.py
-      - name: Upload executable
-        uses: actions/upload-artifact@v4
+      - name: Build EXE
+        run: python -m PyInstaller --noconfirm --clean --onefile --windowed --name MNOVA_Converter MNOVA_IR_MS_Converter_v2.py
+      - uses: actions/upload-artifact@v4
         with:
           name: MNOVA_Converter_Windows_EXE
           path: dist/MNOVA_Converter.exe
